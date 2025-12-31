@@ -1,0 +1,56 @@
+### Dodanie uzytkownika
+POST http://localhost:5050/api/members
+Content-Type: application/json
+
+{
+  "name": "Jan Kowalski",
+  "email": "jan.kowalski@02.pl"
+}
+
+### 409- ten sam email
+POST http://localhost:5050/api/members
+Content-Type: application/json
+
+{
+  "name": "Jan 2",
+  "email": "jan.kowalski@test.pl"
+}
+
+### Dodanie 1 książki
+POST http://localhost:5050/api/books
+Content-Type: application/json
+
+{
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "copies": 1
+}
+
+### lista dotepncych książek
+GET http://localhost:5050/api/books
+
+### Wypozyczenie 
+POST http://localhost:3000/api/loans/borrow
+Content-Type: application/json
+
+{
+  "member_id": 1,
+  "book_id": 1
+}
+
+### 409- brak egzemplarzy
+POST http://localhost:5050/api/loans/borrow
+Content-Type: application/json
+
+{
+  "member_id": 1,
+  "book_id": 1
+}
+
+### Zwrot
+POST http://localhost:5050/api/loans/return
+Content-Type: application/json
+
+{
+  "loan_id": 1
+}

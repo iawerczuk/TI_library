@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <title>WYpożyczalnia</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <header>
+    <h1>Biblioteka</h1>
+    <small>API: <code id="api-url"></code></small>
+  </header>
+
+  <main class="grid">
+    <section>
+      <h2>Użytkownik</h2>
+      <form id="member-form">
+        <label>Imię
+          <input name="name" placeholder="Imię" required />
+        </label>
+        <label>Email
+          <input name="email" type="email" placeholder="imię@domena.pl" required />
+        </label>
+        <button type="submit">Dodaj członka</button>
+        <p class="hint" id="member-msg"></p>
+      </form>
+
+      <h3>Wybierz czytelnika</h3>
+      <select id="member-select"></select>
+    </section>
+
+    <section>
+      <h2>Książki</h2>
+      <form id="book-form">
+        <label>Tytuł
+          <input name="title" placeholder="Tytul" required />
+        </label>
+        <label>Autor
+          <input name="author" placeholder="Autor" required />
+        </label>
+        <label>Liczba egzemplarzy
+          <input name="copies" type="number" min="0" value="1" required />
+        </label>
+        <button type="submit">Dodaj</button>
+        <p class="hint" id="book-msg"></p>
+      </form>
+
+      <h3>Dostępne książki</h3>
+      <table id="books">
+        <thead>
+          <tr><th>Tytuł</th><th>Autor</th><th>Egz.</th><th>Dostępne</th><th>Wpożycz/zwróć</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+
+    <form id="filter-form" class="row">
+        <input id="filter-author" placeholder="Filtruj po autorze…" />
+        <button type="submit">Szukaj</button>
+        <span style="flex:1"></span>
+        <button type="button" id="prev">◀</button>
+        <button type="button" id="next">▶</button>
+      </form>
+
+    <section class="wide">
+      <h2>Aktywne wypożyczenia</h2>
+      <table id="loans">
+        <thead>
+          <tr><th>ID</th><th>Czytelnik</th><th>Książka</th><th>Od</th><th>Do</th><th>Status</th><th>Wpożycz/zwróć</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <small>Created by IA, polished by AI</small>
+  </footer>
+
+  <script>
+    window.API_BASE = 'http://localhost:5050';
+    document.getElementById('api-url').textContent = window.API_BASE;
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
