@@ -21,7 +21,7 @@ Aplikacja realizująca obsługę małej biblioteki: czytelnicy, książki oraz w
 ```
 
 2. Uruchom serwer:
-```bash
+bash
 node server.js
 
 ```
