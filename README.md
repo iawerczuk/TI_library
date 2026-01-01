@@ -16,7 +16,7 @@ Aplikacja realizująca obsługę małej biblioteki: czytelnicy, książki oraz w
 
 1. Zainstaluj zależności:
    ```bash
-   npm install```
+   npm install
 
 ```
 
